@@ -21,7 +21,7 @@ namespace GameOfLifeProject.Cs
                     break;
 
                 case EmptyCell emptyCell:
-                    DecideFutureForEmptyCell(emptyCell, neighbouringAmebaCount);
+                    DecideFutureOfEmptyCell(emptyCell, neighbouringAmebaCount);
                     break;
             }
         }
@@ -46,7 +46,7 @@ namespace GameOfLifeProject.Cs
             }
         }
 
-        private static void DecideFutureForEmptyCell(EmptyCell emptyCell, int neighbouringAmebaCount)
+        private static void DecideFutureOfEmptyCell(EmptyCell emptyCell, int neighbouringAmebaCount)
         {
             if (neighbouringAmebaCount == 3)
                 emptyCell.SpawnAmeba();
