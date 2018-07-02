@@ -6,7 +6,7 @@ namespace GameOfLifeProject.Cs
     {
         public void PassJudgement(CellContent cellContent, Board board)
         {
-            var neighbouringAmebaCount = board.GetNeighbours(cellContent.X, cellContent.Y)
+            var neighbouringAmebaCount = board.GetNeighbours(cellContent.Top, cellContent.Left)
                                               .Count(n => n is Ameba);
 
             PassJudgement(cellContent, neighbouringAmebaCount);

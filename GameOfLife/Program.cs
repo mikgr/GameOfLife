@@ -7,7 +7,7 @@ namespace GameOfLifeProject.Cs
         static void Main(string[] args)
         {
             var god = new God();
-            var board = new Board(width: 100, height: 25);
+            var board = new Board(width: 100, height: 35);
             var boardPresenter  = new BoardPresenter();
             var gameOfLifeGame = new Game(god, board, boardPresenter);
 

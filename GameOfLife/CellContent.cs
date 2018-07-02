@@ -18,9 +18,9 @@
 
         public int Age => _age;
 
-        public int X { get; protected set; }
+        public int Top { get; protected set; }
 
-        public int Y { get; protected set; }
+        public int Left { get; protected set; }
 
         public override string ToString() => Age < 10 ? $"{Age}" : "X";
     }

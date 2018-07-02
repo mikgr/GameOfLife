@@ -60,7 +60,7 @@ namespace GameOfLifeTest.Cs
 
             var neighbours = board.GetNeighbours(cellX, cellY);
 
-            var actual = neighbours.SingleOrDefault(c => c.X == neighbourX && c.Y == neighbourY);
+            var actual = neighbours.SingleOrDefault(c => c.Top == neighbourX && c.Left == neighbourY);
 
             var cellExists = actual != null;
 

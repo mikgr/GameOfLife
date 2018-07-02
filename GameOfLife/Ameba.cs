@@ -2,14 +2,14 @@
 {
     public class Ameba : CellContent
     {
-        public Ameba(int x, int y)
+        public Ameba(int top, int left)
         {
-            X = x;
-            Y = y;
+            Top = top;
+            Left = left;
         }
 
         public void Survive() => NextCellContent = this;
 
-        public void Die() => NextCellContent = new EmptyCell(X, Y);
+        public void Die() => NextCellContent = new EmptyCell(Top, Left);
     }
 }

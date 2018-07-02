@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace GameOfLifeProject.Cs
 {
@@ -8,13 +9,23 @@ namespace GameOfLifeProject.Cs
     {
         public void Precent(Board board) => PrintBoard(board.Cells);
 
-        private void PrintBoard(IEnumerable<CellContent> cells) =>
-            cells.ToList().ForEach(c => PrintAtPos(c.X, c.Y, c is Ameba ? c.ToString() : " "));
-
-        private static void PrintAtPos(int x, int y, string toPrint)
+        private void PrintBoard(IEnumerable<CellContent> sortedCellContent)
         {
-            Console.SetCursorPosition(y, x);
-            Console.Write(toPrint);
+            var viewBuilder = new StringBuilder();
+            var currentTop = 0;
+            foreach (var cellContent in sortedCellContent)
+            {
+                if (cellContent.Top != currentTop)
+                {
+                    viewBuilder.Append(Environment.NewLine);
+                    currentTop = cellContent.Top;
+                }
+
+                viewBuilder.Append(cellContent is Ameba ? cellContent.ToString() : " ");
+            }
+
+            Console.Write(viewBuilder.ToString());
+            Console.SetCursorPosition(0, 0);
         }
     }
 }

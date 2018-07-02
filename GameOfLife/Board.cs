@@ -7,27 +7,26 @@ namespace GameOfLifeProject.Cs
     public class Board
     {
         private readonly Random _rand = new Random();
-        private List<CellContent> _cells;
 
         public Board(int width, int height) => 
-            _cells = InitCells(width, height).ToList();
+            Cells = InitCells(width, height).OrderBy(c => c.Top).ThenBy(c => c.Left).ToList();
 
-        public List<CellContent> Cells => _cells;
+        public List<CellContent> Cells { get; private set; }
 
         private IEnumerable<CellContent> InitCells(int width, int height) =>
-            from x in Enumerable.Range(0, height)
-            from y in Enumerable.Range(0, width)
+            from top in Enumerable.Range(0, height)
+            from left in Enumerable.Range(0, width)
             select Convert.ToBoolean(_rand.Next(2))
-                ? (CellContent)new Ameba(x, y)
-                : (CellContent)new EmptyCell(x, y);
+                ? (CellContent)new Ameba(top, left)
+                : (CellContent)new EmptyCell(top, left);
 
-        public IEnumerable<CellContent> GetNeighbours(int cx, int cy) =>
+        public IEnumerable<CellContent> GetNeighbours(int top, int left) =>
             Cells
-                .Where(c => (cx - 1) <= c.X && c.X <= (cx + 1))
-                .Where(c => (cy - 1) <= c.Y && c.Y <= (cy + 1))
-                .Where(c => c.X != cx || c.Y != cy);
+                .Where(c => (top - 1) <= c.Top && c.Top <= (top + 1))
+                .Where(c => (left - 1) <= c.Left && c.Left <= (left + 1))
+                .Where(c => c.Top != top || c.Left != left);
 
         public void ProceedToNextRound() =>
-            _cells = _cells.Select(c => c.NextCellContent).ToList();
+            Cells = Cells.Select(c => c.NextCellContent).ToList();
     }
 }
