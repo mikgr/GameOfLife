@@ -29,8 +29,8 @@ namespace GameOfLifeProject.Cs
                     : " ");
             }
 
-            Console.Write(viewBuilder.ToString());
             Console.SetCursorPosition(0, 0);
+            Console.Write(viewBuilder.ToString());
         }
     }
 }
