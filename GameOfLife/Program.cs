@@ -4,7 +4,7 @@ namespace GameOfLifeProject.Cs
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             var god = new God();
             var board = new Board(width: 150, height: 35);

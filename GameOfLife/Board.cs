@@ -17,7 +17,7 @@ namespace GameOfLifeProject.Cs
             Cells.ForEach(c => c.SetNeighbours(GetNeighbours(c.Top, c.Left)));
         }
 
-        public List<Cell> Cells { get; private set; }
+        public List<Cell> Cells { get; }
 
         private IEnumerable<Cell> InitCells(int height, int width) =>
             from top in Enumerable.Range(0, width)

@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace GameOfLifeProject.Cs
+﻿namespace GameOfLifeProject.Cs
 {
     public sealed class God
     {

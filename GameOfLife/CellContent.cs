@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Linq.Expressions;
-
-namespace GameOfLifeProject.Cs
+﻿namespace GameOfLifeProject.Cs
 {
     public abstract class CellContent
     {

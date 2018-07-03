@@ -17,11 +17,9 @@ namespace GameOfLifeProject.Cs
 
         public CellContent CellContent { get; private set; }
 
-        public int Top { get; private set; }
+        public int Top { get; }
 
-        public int Left { get; private set; }
-
-        public List<Cell> NeighBours => _neighbours;
+        public int Left { get; }
 
         public void SetNeighbours(IEnumerable<Cell> neighbours) =>
             _neighbours = _neighbours == null 
