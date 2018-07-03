@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Linq.Expressions;
 
 namespace GameOfLifeProject.Cs
 {
@@ -6,20 +7,18 @@ namespace GameOfLifeProject.Cs
     {
         private CellContent _nextCellContent;
 
-        private int _age = 1;
-
         public CellContent NextCellContent
         {
             get => _nextCellContent;
             protected set
             {
                 _nextCellContent = value;
-                _age++;
+                Age++;
             }
         }
 
-        public int Age => _age;
+        public int Age { get; private set; } = 1;
 
-        public override string ToString() => Age < 10 ? $"{Age}" : "X";
+        public abstract string Display();
     }
 }

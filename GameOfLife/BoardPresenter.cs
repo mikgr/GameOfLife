@@ -9,7 +9,7 @@ namespace GameOfLifeProject.Cs
     {
         public void Precent(Board board) => PrintBoard(board.Cells);
 
-        private void PrintBoard(IEnumerable<Cell> sortedCellContent)
+        private static void PrintBoard(IEnumerable<Cell> sortedCellContent)
         {
             var viewBuilder = new StringBuilder();
             var currentTop = 0;
@@ -22,7 +22,7 @@ namespace GameOfLifeProject.Cs
                     currentTop = cell.Top;
                 }
 
-                viewBuilder.Append(cell.CellContent is Ameba ? cell.CellContent.ToString() : " ");
+                viewBuilder.Append(cell.CellContent.Display());
             }
 
             Console.Write(viewBuilder.ToString());
