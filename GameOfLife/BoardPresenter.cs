@@ -9,19 +9,19 @@ namespace GameOfLifeProject.Cs
     {
         public void Precent(Board board) => PrintBoard(board.Cells);
 
-        private void PrintBoard(IEnumerable<CellContent> sortedCellContent)
+        private void PrintBoard(IEnumerable<Cell> sortedCellContent)
         {
             var viewBuilder = new StringBuilder();
             var currentTop = 0;
-            foreach (var cellContent in sortedCellContent)
+            foreach (var cell in sortedCellContent)
             {
-                if (cellContent.Top != currentTop)
+                if (cell.Top != currentTop)
                 {
                     viewBuilder.Append(Environment.NewLine);
-                    currentTop = cellContent.Top;
+                    currentTop = cell.Top;
                 }
 
-                viewBuilder.Append(cellContent is Ameba ? cellContent.ToString() : " ");
+                viewBuilder.Append(cell.CellContent is Ameba ? cell.CellContent.ToString() : " ");
             }
 
             Console.Write(viewBuilder.ToString());
