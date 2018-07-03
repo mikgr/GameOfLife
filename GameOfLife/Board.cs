@@ -4,14 +4,18 @@ using System.Linq;
 
 namespace GameOfLifeProject.Cs
 {
-    public class Board
+    public sealed class Board
     {
         private readonly Random _rand = new Random();
 
-        public Board(int width, int height) => 
+        public Board(int width, int height)
+        {
             Cells = InitCells(width, height).OrderBy(c => c.Top)
                                             .ThenBy(c => c.Left)
                                             .ToList();
+
+            Cells.ForEach(c => c.SetNeighbours(GetNeighbours(c.Top, c.Left)));
+        }
 
         public List<Cell> Cells { get; private set; }
 
@@ -19,10 +23,9 @@ namespace GameOfLifeProject.Cs
             from top in Enumerable.Range(0, width)
             from left in Enumerable.Range(0, height)
             select Convert.ToBoolean(_rand.Next(2))
-                ? new Cell(new Ameba(), top, left) 
+                ? new Cell(new Ameba(), top, left)
                 : new Cell(new EmptyCell(), top, left);
-        
-        // todo build a neighbour index
+
         public IEnumerable<Cell> GetNeighbours(int top, int left) =>
             Cells
                 .Where(c => (top - 1) <= c.Top && c.Top <= (top + 1))

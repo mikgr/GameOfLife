@@ -26,8 +26,7 @@ namespace GameOfLifeProject.Cs
 
         private async Task PlayRound(int clockSpeed)
         {
-            _board.Cells.ForEach(c => _god.PassJudgement(c, _board));
-            //Parallel.ForEach(_board.Cells, c => _god.PassJudgement(c, _board));
+            Parallel.ForEach(_board.Cells, c => _god.PassJudgement(c));
 
             _board.ProceedToNextRound();
 

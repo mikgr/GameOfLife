@@ -2,15 +2,10 @@
 
 namespace GameOfLifeProject.Cs
 {
-    public class God
+    public sealed class God
     {
-        public void PassJudgement(Cell cell, Board board)
-        {
-            var neighbouringAmebaCount = board.GetNeighbours(cell.Top, cell.Left)
-                                              .Count(n => n.CellContent is Ameba);
-
-            PassJudgement(cell.CellContent, neighbouringAmebaCount);
-        }
+        public void PassJudgement(Cell cell) =>
+            PassJudgement(cell.CellContent, cell.CountNeighbouringAmeba());
 
         public static void PassJudgement(CellContent cellContent, int neighbouringAmebaCount)
         {

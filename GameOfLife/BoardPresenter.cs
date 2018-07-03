@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GameOfLifeProject.Cs
 {
-    public class BoardPresenter : IBoardPresenter
+    internal  sealed class BoardPresenter : IBoardPresenter
     {
         public void Precent(Board board) => PrintBoard(board.Cells);
 
@@ -13,6 +13,7 @@ namespace GameOfLifeProject.Cs
         {
             var viewBuilder = new StringBuilder();
             var currentTop = 0;
+
             foreach (var cell in sortedCellContent)
             {
                 if (cell.Top != currentTop)

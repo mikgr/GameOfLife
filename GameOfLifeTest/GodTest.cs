@@ -22,7 +22,7 @@ namespace GameOfLifeTest.Cs
         [InlineData(typeof(EmptyCell), 4, typeof(EmptyCell))]
         public void PassJudgement(Type inputType, int neighbourCount, Type expectedNextCellContentType)
         {
-            var cellContent = (CellContent)Activator.CreateInstance(inputType, 0, 0);
+            var cellContent = (CellContent)Activator.CreateInstance(inputType);
             God.PassJudgement(cellContent, neighbourCount);
             Assert.True(cellContent.NextCellContent.GetType() == expectedNextCellContentType);
         }
