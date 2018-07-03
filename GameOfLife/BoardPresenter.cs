@@ -21,7 +21,12 @@ namespace GameOfLifeProject.Cs
                     currentTop = cell.Top;
                 }
 
-                viewBuilder.Append(cell.CellContent.Display());
+                viewBuilder.Append(
+                    cell.CellContent is Ameba 
+                    ? cell.CellContent.Age < 10 
+                            ? cell.CellContent.Age.ToString() 
+                            : "X" 
+                    : " ");
             }
 
             Console.Write(viewBuilder.ToString());

@@ -5,7 +5,5 @@
         public void Maintain() => NextCellContent = this;
 
         public void SpawnAmeba() => NextCellContent = new Ameba();
-
-        public override string Display() => " ";
     }
 }

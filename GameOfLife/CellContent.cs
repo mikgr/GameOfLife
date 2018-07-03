@@ -15,7 +15,5 @@
         }
 
         public int Age { get; private set; } = 1;
-
-        public abstract string Display();
     }
 }
