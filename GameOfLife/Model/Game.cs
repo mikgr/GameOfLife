@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace GameOfLifeProject.Cs
+namespace GameOfLifeProject.Cs.Model
 {
     public class Game
     {

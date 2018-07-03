@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using GameOfLifeProject.Cs;
+using GameOfLifeProject.Cs.Model;
 using Xunit;
 
 namespace GameOfLifeTest.Cs

@@ -1,4 +1,5 @@
 ﻿using System;
+using GameOfLifeProject.Cs.Model;
 
 namespace GameOfLifeProject.Cs
 {

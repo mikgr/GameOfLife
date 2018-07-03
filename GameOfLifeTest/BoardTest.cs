@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using GameOfLifeProject.Cs;
+using GameOfLifeProject.Cs.Model;
 using Xunit;
 
 namespace GameOfLifeTest.Cs

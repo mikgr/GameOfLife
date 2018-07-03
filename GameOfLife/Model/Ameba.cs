@@ -1,4 +1,4 @@
-﻿namespace GameOfLifeProject.Cs
+﻿namespace GameOfLifeProject.Cs.Model
 {
     public class Ameba : CellContent
     {

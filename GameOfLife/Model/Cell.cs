@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
-namespace GameOfLifeProject.Cs
+namespace GameOfLifeProject.Cs.Model
 {
     public sealed class Cell
     {
